@@ -105,7 +105,7 @@ ajv                        6.9.1   →   6.10.0
 - [Added RTL support](https://github.com/creativetimofficial/material-dashboard-react/issues/16)
 ### Bug Fixing
 - [Added new script for npm](https://github.com/creativetimofficial/material-dashboard-react/issues/69)
-- Changed our buggy routing system, now it should work flawlessly, for more info, please refer to our [live docs here](https://demos.creative-tim.com/material-dashboard-react/#/documentation/routing-system)
+- Changed our buggy routing system, now it should work flawlessly, for more info, please refer to our [live docs here](https://demos.Airline.com/material-dashboard-react/#/documentation/routing-system)
 - [https://github.com/creativetimofficial/material-dashboard-react/issues/67](https://github.com/creativetimofficial/material-dashboard-react/issues/67)
 - [https://github.com/creativetimofficial/material-dashboard-react/issues/68](https://github.com/creativetimofficial/material-dashboard-react/issues/68)
 - [https://github.com/creativetimofficial/material-dashboard-react/issues/66](https://github.com/creativetimofficial/material-dashboard-react/issues/66)
@@ -311,4 +311,4 @@ ajv                        6.9.1   →   6.10.0
 ## [1.0.0] 2018-01-29
 ### Original Release
 - Added Material-UI as base framework
-- Added design from Material Dashboard by Creative Tim
+- Added design from Material Dashboard by Airline

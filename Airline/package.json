@@ -1,7 +1,7 @@
 {
   "name": "material-dashboard-react",
   "version": "1.9.0",
-  "description": "Material Dashboard React. Coded by Creative Tim",
+  "description": "Material Dashboard React. Coded by Airline",
   "private": false,
   "main": "dist/index.js",
   "dependencies": {
@@ -36,7 +36,7 @@
     "url": "git+https://github.com/creativetimofficial/material-dashboard-react.git"
   },
   "keywords": [],
-  "author": "Creative Tim <hello@creative-tim.com> (https://www.creative-tim.com/)",
+  "author": "Airline <hello@Airline.com> (https://www.Airline.com/)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/creativetimofficial/material-dashboard-react/issues"
