@@ -4,38 +4,19 @@ import ChartistGraph from "react-chartist";
 // @material-ui/core
 import { makeStyles } from "@material-ui/core/styles";
 import Icon from "@material-ui/core/Icon";
-// @material-ui/icons
-import Store from "@material-ui/icons/Store";
-import Warning from "@material-ui/icons/Warning";
-import DateRange from "@material-ui/icons/DateRange";
-import LocalOffer from "@material-ui/icons/LocalOffer";
-import Update from "@material-ui/icons/Update";
-import ArrowUpward from "@material-ui/icons/ArrowUpward";
-import AccessTime from "@material-ui/icons/AccessTime";
-import Accessibility from "@material-ui/icons/Accessibility";
-import BugReport from "@material-ui/icons/BugReport";
-import Code from "@material-ui/icons/Code";
-import Cloud from "@material-ui/icons/Cloud";
+
 // core components
 import GridItem from "components/Grid/GridItem.js";
 import GridContainer from "components/Grid/GridContainer.js";
-import Table from "components/Table/Table.js";
-import Tasks from "components/Tasks/Tasks.js";
-import CustomTabs from "components/CustomTabs/CustomTabs.js";
-import Danger from "components/Typography/Danger.js";
+
 import Card from "components/Card/Card.js";
 import CardHeader from "components/Card/CardHeader.js";
 import CardIcon from "components/Card/CardIcon.js";
-import CardBody from "components/Card/CardBody.js";
 import CardFooter from "components/Card/CardFooter.js";
+import { DataGrid } from '@material-ui/data-grid';
 
-import { bugs, website, server } from "variables/general.js";
+import clsx from 'clsx';
 
-import {
-  dailySalesChart,
-  emailsSubscriptionChart,
-  completedTasksChart
-} from "variables/charts.js";
 
 import styles from "assets/jss/material-dashboard-react/views/dashboardStyle.js";
 
@@ -43,9 +24,98 @@ import "assets/css/style.css";
 
 const useStyles = makeStyles(styles);
 
+const customeStyles = makeStyles({
+  root: {
+    '& .super-app-theme--cell': {
+      backgroundColor: 'rgba(224, 183, 60, 0.55)',
+      color: '#1a3e72',
+      fontWeight: '600',
+    },
+    '& .super-app.negative': {
+      backgroundColor: 'rgba(111, 220, 111, 0.49)',
+      color: '#1a3e72',
+      fontWeight: '600',
+    },
+    '& .super-app.positive': {
+      backgroundColor: '#33cccc',
+      color: '#1a3e72',
+      fontWeight: '600',
+    },
+    '& .super-app.infant': {
+      backgroundColor: '#ffa31a',
+      color: '#1a3e72',
+      fontWeight: '600',
+    },
+  },
+});
+
+const columns = [
+  { field: 'id', headerName: 'ID', width: 70 },
+  { field: 'name', headerName: 'Name', width: 180 },
+  { field: 'ancillary', headerName: 'Ancillary service', width: 270 },
+  {
+    field: 'seatN',
+    headerName: 'Seat Number',
+    type: 'number',
+    width: 90,
+    
+  },
+  {
+    field: 'checkin',
+    headerName: 'Checked in',
+    description: 'Check In',
+    sortable: false,
+    width: 160,
+    cellClassName: (params) =>
+    clsx('super-app', {
+      negative: params.value === 'checked',
+    }),
+    
+    // valueGetter: () => <Checkbox></Checkbox>
+    // valueGetter: (params) =>
+    //   `${params.getValue('firstName') || ''} ${params.getValue('lastName') || ''}`,
+  },
+  { field: 'wheel', headerName: 'Wheel chair', width: 130 ,
+    cellClassName: (params) =>
+    clsx('super-app', {
+      positive: params.value === 'Yes',
+    }),
+  },
+  { field: 'infant', headerName: 'Infant', width: 130,
+
+    cellClassName: (params) =>
+    clsx('super-app', {
+      infant: params.value === 'Yes',
+    }),
+  },
+];
+
+const rows = [
+  { id: 1, name: 'Snow', ancillary: 'Jon', seatN: 35 , wheel: 'Yes'},
+  { id: 2, name: 'Lannister', ancillary: 'Cersei', seatN: 42, checkin: 'checked', infant:'Yes' },
+  { id: 3, name: 'Lannister', ancillary: 'Jaime', seatN: 45 , wheel: 'Yes'},
+  { id: 4, name: 'Stark', ancillary: 'Arya', seatN: 16 , checkin: 'checked'},
+  { id: 5, name: 'Targaryen', ancillary: 'Daenerys', seatN: 93, wheel: 'Yes', infant:'Yes' },
+  { id: 6, name: 'Melisandre', ancillary: 'Harvey', seatN: 150, checkin: 'checked', wheel: 'Yes' },
+  { id: 7, name: 'Clifford', ancillary: 'Ferrara', seatN: 44, checkin: 'checked' , infant:'Yes' },
+  { id: 8, name: 'Frances', ancillary: 'Rossini', seatN: 36, wheel: 'Yes' },
+  { id: 9, name: 'Lannister', ancillary: 'Cersei', seatN: 45, checkin: 'checked', infant:'Yes' },
+  { id: 10, name: 'Targaryen', ancillary: 'Daenerys', seatN: 37 },
+  { id: 11, name: 'Roxie', ancillary: 'Harvey', seatN: 65, wheel: 'Yes', infant:'Yes' },
+  { id: 12, name: 'Lannister', ancillary: 'Cersei', seatN: 29 , wheel: 'Yes'},
+  { id: 13, name: 'Lannister', ancillary: 'Jaime', seatN: 49, checkin: 'checked', infant:'Yes'},
+  { id: 14, name: 'Stark', ancillary: 'Arya', seatN: 18, checkin: 'checked' },
+  { id: 15, name: 'Targaryen', ancillary: 'Daenerys', seatN: 17 , infant:'Yes'},
+  { id: 16, name: 'Melisandre', ancillary: 'Jon', seatN: 157, checkin: 'checked'},
+  { id: 17, name: 'Clifford', ancillary: 'Ferrara', seatN: 82, wheel: 'Yes' },
+  { id: 18, name: 'Frances', ancillary: 'Rossini', seatN: 39, wheel: 'Yes' },
+  { id: 19, name: 'Roxie', ancillary: 'Harvey', seatN: 68 , checkin: 'checked', infant:'Yes'},
+];
+
 export default function Dashboard() {
     
   const classes = useStyles();
+  const customeClasses = customeStyles();
   const [fixedClasses, setFixedClasses] = React.useState("dropdown show");
 
   const handleFixedClick = () => {
@@ -59,6 +129,7 @@ export default function Dashboard() {
  
   return (
     <div>
+      
     <div className={fixedClasses}>
       <GridContainer>
         <GridItem xs={12} sm={6} md={3}>
@@ -76,7 +147,7 @@ export default function Dashboard() {
             <CardFooter stats>
               <div className={classes.stats}>
               <Icon>person</Icon>
-                <div onClick={handleFixedClick}>
+                <div onClick={handleFixedClick} style={{cursor: 'pointer', textDecoration:'underline'}}>
                     View more passengers
                 </div>
               </div>
@@ -96,7 +167,7 @@ export default function Dashboard() {
             <CardFooter stats>
             <div className={classes.stats}>
               <Icon>person</Icon>
-              <div onClick={handleFixedClick}>
+              <div onClick={handleFixedClick} style={{cursor: 'pointer', textDecoration:'underline'}}>
                     View more passengers
                 </div>
               </div>
@@ -115,7 +186,7 @@ export default function Dashboard() {
             <CardFooter stats>
             <div className={classes.stats}>
               <Icon>person</Icon>
-              <div onClick={handleFixedClick}>
+              <div onClick={handleFixedClick} style={{cursor: 'pointer', textDecoration:'underline'}}>
                     View more passengers
                 </div>
               </div>
@@ -134,7 +205,7 @@ export default function Dashboard() {
             <CardFooter stats>
             <div className={classes.stats}>
               <Icon>person</Icon>
-              <div onClick={handleFixedClick}>
+              <div onClick={handleFixedClick} style={{cursor: 'pointer', textDecoration:'underline'}}>
                     View more passengers
                 </div>
               </div>
@@ -157,7 +228,7 @@ export default function Dashboard() {
               </h3>
             </CardHeader>
             <CardFooter stats>
-            <div className={classes.stats}>
+            <div className={classes.stats} style={{cursor: 'pointer', textDecoration:'underline'}}>
               <Icon>person</Icon>
               <div onClick={handleFixedClick}>
                     View more passengers
@@ -178,7 +249,7 @@ export default function Dashboard() {
             <CardFooter stats>
             <div className={classes.stats}>
               <Icon>person</Icon>
-              <div onClick={handleFixedClick}>
+              <div onClick={handleFixedClick} style={{cursor: 'pointer', textDecoration:'underline'}}>
                     View more passengers
                 </div>
               </div>
@@ -197,7 +268,7 @@ export default function Dashboard() {
             <CardFooter stats>
             <div className={classes.stats}>
               <Icon>person</Icon>
-              <div onClick={handleFixedClick}>
+              <div onClick={handleFixedClick} style={{cursor: 'pointer', textDecoration:'underline'}}>
                     View more passengers
                 </div>
               </div>
@@ -216,7 +287,7 @@ export default function Dashboard() {
             <CardFooter stats>
             <div className={classes.stats}>
               <Icon>person</Icon>
-              <div onClick={handleFixedClick}>
+              <div onClick={handleFixedClick} style={{cursor: 'pointer', textDecoration:'underline'}}>
                     View more passengers
                 </div>
               </div>
@@ -241,7 +312,7 @@ export default function Dashboard() {
             <CardFooter stats>
             <div className={classes.stats}>
               <Icon>person</Icon>
-              <div onClick={handleFixedClick}>
+              <div onClick={handleFixedClick} style={{cursor: 'pointer', textDecoration:'underline'}}>
                     View more passengers
                 </div>
               </div>
@@ -260,7 +331,7 @@ export default function Dashboard() {
             <CardFooter stats>
             <div className={classes.stats}>
               <Icon>person</Icon>
-              <div onClick={handleFixedClick}>
+              <div onClick={handleFixedClick} style={{cursor: 'pointer', textDecoration:'underline'}}>
                     View more passengers
                 </div>
               </div>
@@ -279,7 +350,7 @@ export default function Dashboard() {
             <CardFooter stats>
             <div className={classes.stats}>
               <Icon>person</Icon>
-              <div onClick={handleFixedClick}>
+              <div onClick={handleFixedClick} style={{cursor: 'pointer', textDecoration:'underline'}}>
                     View more passengers
                 </div>
               </div>
@@ -298,7 +369,7 @@ export default function Dashboard() {
             <CardFooter stats>
             <div className={classes.stats}>
               <Icon>person</Icon>
-              <div onClick={handleFixedClick}>
+              <div onClick={handleFixedClick} style={{cursor: 'pointer', textDecoration:'underline'}}>
                     View more passengers
                 </div>
               </div>
@@ -309,88 +380,11 @@ export default function Dashboard() {
       
     </div>
 
-    <div className={fixedClasses === "dropdown" ? "dropdown show" : "dropdown"}>
-        <GridContainer>
-        <GridItem xs={12} sm={6} md={3}>
-          <Card>
-            <CardHeader color="warning" stats icon>
-              <CardIcon color="warning">
-                <Icon>airplanemode_active</Icon>
-              </CardIcon>
-              <p className={classes.cardCategory}>Passengers</p>
-              <h3 className={classes.cardTitle}>
-                372<br></br><p className={classes.cardCategory}>Hyderabad To Aurangabad Flights. 2394 , 25 Jan 2021</p>
-              </h3>
-            </CardHeader>
-            <CardFooter stats>
-            <div className={classes.stats}>
-              <Icon>person</Icon>
-              <div onClick={handleFixedClick}>
-                    View more passengers
-                </div>
-              </div>
-            </CardFooter>
-          </Card>
-        </GridItem>
-        <GridItem xs={12} sm={6} md={3}>
-          <Card>
-            <CardHeader color="success" stats icon>
-              <CardIcon color="success">
-                <Icon>airplanemode_active</Icon>
-              </CardIcon>
-              <p className={classes.cardCategory}>Passengers</p>
-              <h3 className={classes.cardTitle}>243<br></br><p className={classes.cardCategory}>Coimbatore To Aurangabad Flights. 4288 , 01 Dec 2020</p></h3>
-            </CardHeader>
-            <CardFooter stats>
-            <div className={classes.stats}>
-              <Icon>person</Icon>
-              <div onClick={handleFixedClick}>
-                    View more passengers
-                </div>
-              </div>
-            </CardFooter>
-          </Card>
-        </GridItem>
-        <GridItem xs={12} sm={6} md={3}>
-          <Card>
-            <CardHeader color="warning" stats icon>
-              <CardIcon color="warning">
-                <Icon>airplanemode_active</Icon>
-              </CardIcon>
-              <p className={classes.cardCategory}>Passengers</p>
-              <h3 className={classes.cardTitle}>173<br></br><p className={classes.cardCategory}>Hyderabad To Aurangabad Flights. 2394 , 25 Jan 2021</p></h3>
-            </CardHeader>
-            <CardFooter stats>
-            <div className={classes.stats}>
-              <Icon>person</Icon>
-              <div onClick={handleFixedClick}>
-                    View more passengers
-                </div>
-              </div>
-            </CardFooter>
-          </Card>
-        </GridItem>
-        <GridItem xs={12} sm={6} md={3}>
-          <Card>
-            <CardHeader color="info" stats icon>
-              <CardIcon color="info">
-                <Icon>airplanemode_active</Icon>
-              </CardIcon>
-              <p className={classes.cardCategory}>Passengers</p>
-              <h3 className={classes.cardTitle}>423<br></br><p className={classes.cardCategory}>Delhi To Mumbai FlightsLowest Fare Rs. 3746 , 28 Nov 2020</p></h3>
-            </CardHeader>
-            <CardFooter stats>
-            <div className={classes.stats}>
-              <Icon>person</Icon>
-              <div onClick={handleFixedClick}>
-                    View more passengers
-                </div>
-              </div>
-            </CardFooter>
-          </Card>
-        </GridItem>
-      </GridContainer>
-    </div>
+      <div className={fixedClasses === "dropdown" ? "dropdown show" : "dropdown"}>
+        <div style={{ height: 500, width: '100%' }} className={customeClasses.root}>
+          <DataGrid rows={rows} columns={columns} pageSize={7} checkboxSelection />
+        </div>
+      </div>
     </div>
   );
 }

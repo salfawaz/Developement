@@ -1,95 +1,57 @@
-import React from "react";
-// react plugin for creating charts
-import ChartistGraph from "react-chartist";
-// @material-ui/core
-import { makeStyles } from "@material-ui/core/styles";
-import Icon from "@material-ui/core/Icon";
-// @material-ui/icons
-import Store from "@material-ui/icons/Store";
-import Warning from "@material-ui/icons/Warning";
-import DateRange from "@material-ui/icons/DateRange";
-import LocalOffer from "@material-ui/icons/LocalOffer";
-import Update from "@material-ui/icons/Update";
-import ArrowUpward from "@material-ui/icons/ArrowUpward";
-import AccessTime from "@material-ui/icons/AccessTime";
-import Accessibility from "@material-ui/icons/Accessibility";
-import BugReport from "@material-ui/icons/BugReport";
-import Code from "@material-ui/icons/Code";
-import Cloud from "@material-ui/icons/Cloud";
-// core components
-import GridItem from "components/Grid/GridItem.js";
-import GridContainer from "components/Grid/GridContainer.js";
-import Table from "components/Table/Table.js";
-import Tasks from "components/Tasks/Tasks.js";
-import CustomTabs from "components/CustomTabs/CustomTabs.js";
-import Danger from "components/Typography/Danger.js";
-import Card from "components/Card/Card.js";
-import CardHeader from "components/Card/CardHeader.js";
-import CardIcon from "components/Card/CardIcon.js";
-import CardBody from "components/Card/CardBody.js";
-import CardFooter from "components/Card/CardFooter.js";
+import * as React from 'react';
+import { DataGrid } from '@material-ui/data-grid';
+import {Checkbox } from '@material-ui/core';
 
-import { bugs, website, server } from "variables/general.js";
+const columns = [
+  { field: 'id', headerName: 'ID', width: 70 },
+  { field: 'name', headerName: 'Name', width: 180 },
+  { field: 'ancillary', headerName: 'Ancillary service', width: 270 },
+  {
+    field: 'seatN',
+    headerName: 'Seat Number',
+    type: 'number',
+    width: 90,
+  },
+  {
+    field: 'checkin',
+    headerName: 'Checked in',
+    description: 'Check In',
+    sortable: false,
+    width: 160,
+    // valueGetter: () => <Checkbox></Checkbox>
+    // valueGetter: (params) =>
+    //   `${params.getValue('firstName') || ''} ${params.getValue('lastName') || ''}`,
+  },
+  { field: 'wheel', headerName: 'Wheel chair', width: 130 },
+  { field: 'infant', headerName: 'Infant', width: 130 },
+];
 
-import {
-  dailySalesChart,
-  emailsSubscriptionChart,
-  completedTasksChart
-} from "variables/charts.js";
+const rows = [
+  { id: 1, name: 'Snow', ancillary: 'Jon', seatN: 35 , checkin: 'checked' , wheel: 'Yes'},
+  { id: 2, name: 'Lannister', ancillary: 'Cersei', seatN: 42, checkin: 'checked', infant:'Yes' },
+  { id: 3, name: 'Lannister', ancillary: 'Jaime', seatN: 45 , wheel: 'Yes'},
+  { id: 4, name: 'Stark', ancillary: 'Arya', seatN: 16 , checkin: 'checked'},
+  { id: 5, name: 'Targaryen', ancillary: 'Daenerys', seatN: 93, wheel: 'Yes', infant:'Yes' },
+  { id: 6, name: 'Melisandre', ancillary: 'Harvey', seatN: 150, checkin: 'checked', wheel: 'Yes' },
+  { id: 7, name: 'Clifford', ancillary: 'Ferrara', seatN: 44, checkin: 'checked' },
+  { id: 8, name: 'Frances', ancillary: 'Rossini', seatN: 36, wheel: 'Yes' },
+  { id: 9, name: 'Lannister', ancillary: 'Cersei', seatN: 45, checkin: 'checked', infant:'Yes' },
+  { id: 10, name: 'Targaryen', ancillary: 'Daenerys', seatN: 37 },
+  { id: 11, name: 'Roxie', ancillary: 'Harvey', seatN: 65, wheel: 'Yes', infant:'Yes' },
+  { id: 12, name: 'Lannister', ancillary: 'Cersei', seatN: 29 , wheel: 'Yes'},
+  { id: 13, name: 'Lannister', ancillary: 'Jaime', seatN: 49, checkin: 'checked', infant:'Yes'},
+  { id: 14, name: 'Stark', ancillary: 'Arya', seatN: 18, checkin: 'checked' },
+  { id: 15, name: 'Targaryen', ancillary: 'Daenerys', seatN: 17 , infant:'Yes'},
+  { id: 16, name: 'Melisandre', ancillary: 'Jon', seatN: 157, checkin: 'checked'},
+  { id: 17, name: 'Clifford', ancillary: 'Ferrara', seatN: 82, wheel: 'Yes' },
+  { id: 18, name: 'Frances', ancillary: 'Rossini', seatN: 39, wheel: 'Yes' },
+  { id: 19, name: 'Roxie', ancillary: 'Harvey', seatN: 68 , checkin: 'checked', infant:'Yes'},
+];
 
-import styles from "assets/jss/material-dashboard-react/views/dashboardStyle.js";
-
-const useStyles = makeStyles(styles);
-
-export default function Dashboard() {
-  const classes = useStyles();
+export default function DataTable() {
   return (
-    <div>
-      
-      <GridContainer>
-        <GridItem xs={12} sm={12} md={0}>
-          <CustomTabs
-            title="Tasks:"
-            headerColor="success"
-            tabs={[
-              {
-                tabName: "Flights within India",
-                tabIcon: BugReport,
-                tabContent: (
-                  <Tasks
-                    checkedIndexes={[0, 3]}
-                    tasksIndexes={[0, 1, 2, 3]}
-                    tasks={bugs}
-                  />
-                )
-              },
-              {
-                tabName: "flight details & seat map",
-                tabIcon: Code,
-                tabContent: (
-                  <Tasks
-                    checkedIndexes={[0]}
-                    tasksIndexes={[0, 1]}
-                    tasks={website}
-                  />
-                )
-              },
-              {
-                tabName: "Server",
-                tabIcon: Cloud,
-                tabContent: (
-                  <Tasks
-                    checkedIndexes={[1]}
-                    tasksIndexes={[0, 1, 2]}
-                    tasks={server}
-                  />
-                )
-              }
-            ]}
-          />
-        </GridItem>
-       
-      </GridContainer>
+    <div style={{ height: 500, width: '100%' }}>
+      <DataGrid rows={rows} columns={columns} pageSize={7} checkboxSelection />
     </div>
   );
 }
