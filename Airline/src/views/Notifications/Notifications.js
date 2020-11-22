@@ -135,9 +135,9 @@ export default function Notifications() {
           and styled by{" "}
           <a
             target="_blank"
-            href="https://www.creative-tim.com/?ref=mdr-notifications-page"
+            href="https://www.Airline.com/?ref=mdr-notifications-page"
           >
-            Creative Tim
+            Airline
           </a>
           . Please checkout the{" "}
           <a href="#pablo" target="_blank">

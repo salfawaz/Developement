@@ -1,3 +1,4 @@
+import { NoEncryption } from "@material-ui/icons";
 import {
   successColor,
   whiteColor,
@@ -8,6 +9,11 @@ import {
 const dashboardStyle = {
   successText: {
     color: successColor[0]
+  },
+
+  hideFlights:{
+    display : "none",
+    fontSize: "12px"
   },
   upArrowCardCategory: {
     width: "16px",

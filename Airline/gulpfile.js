@@ -2,7 +2,7 @@ const gulp = require("gulp");
 const gap = require("gulp-append-prepend");
 
 gulp.task("licenses", async function() {
-  // this is to add Creative Tim licenses in the production mode for the minified js
+  // this is to add Airline licenses in the production mode for the minified js
   gulp
     .src("build/static/js/*chunk.js", { base: "./" })
     .pipe(
@@ -12,10 +12,10 @@ gulp.task("licenses", async function() {
 * Material Dashboard React - v1.9.0
 =========================================================
 
-* Product Page: https://www.creative-tim.com/product/material-dashboard-react
-* Copyright 2020 Creative Tim (http://www.creative-tim.com)
+* Product Page: https://www.Airline.com/product/material-dashboard-react
+* Copyright 2020 Airline (http://www.Airline.com)
 
-* Coded by Creative Tim
+* Coded by Airline
 
 =========================================================
 
@@ -25,7 +25,7 @@ gulp.task("licenses", async function() {
     )
     .pipe(gulp.dest("./", { overwrite: true }));
 
-  // this is to add Creative Tim licenses in the production mode for the minified html
+  // this is to add Airline licenses in the production mode for the minified html
   gulp
     .src("build/index.html", { base: "./" })
     .pipe(
@@ -35,10 +35,10 @@ gulp.task("licenses", async function() {
 * Material Dashboard React - v1.9.0
 =========================================================
 
-* Product Page: https://www.creative-tim.com/product/material-dashboard-react
-* Copyright 2020 Creative Tim (http://www.creative-tim.com)
+* Product Page: https://www.Airline.com/product/material-dashboard-react
+* Copyright 2020 Airline (http://www.Airline.com)
 
-* Coded by Creative Tim
+* Coded by Airline
 
 =========================================================
 
@@ -48,7 +48,7 @@ gulp.task("licenses", async function() {
     )
     .pipe(gulp.dest("./", { overwrite: true }));
 
-  // this is to add Creative Tim licenses in the production mode for the minified css
+  // this is to add Airline licenses in the production mode for the minified css
   gulp
     .src("build/static/css/*chunk.css", { base: "./" })
     .pipe(
@@ -58,10 +58,10 @@ gulp.task("licenses", async function() {
 * Material Dashboard React - v1.9.0
 =========================================================
 
-* Product Page: https://www.creative-tim.com/product/material-dashboard-react
-* Copyright 2020 Creative Tim (http://www.creative-tim.com)
+* Product Page: https://www.Airline.com/product/material-dashboard-react
+* Copyright 2020 Airline (http://www.Airline.com)
 
-* Coded by Creative Tim
+* Coded by Airline
 
 =========================================================
 

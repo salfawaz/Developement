@@ -39,13 +39,27 @@ import {
 
 import styles from "assets/jss/material-dashboard-react/views/dashboardStyle.js";
 
+import "assets/css/style.css";
+
 const useStyles = makeStyles(styles);
 
 export default function Dashboard() {
+    
   const classes = useStyles();
+  const [fixedClasses, setFixedClasses] = React.useState("dropdown show");
+
+  const handleFixedClick = () => {
+      console.log(fixedClasses);
+    if (fixedClasses === "dropdown") {
+      setFixedClasses("dropdown show");
+    } else {
+      setFixedClasses("dropdown");
+    }
+  };
+
   return (
     <div>
-    <div id = "flights">
+    <div className={fixedClasses}>
       <GridContainer>
         <GridItem xs={12} sm={6} md={3}>
           <Card>
@@ -62,13 +76,9 @@ export default function Dashboard() {
             <CardFooter stats>
               <div className={classes.stats}>
               <Icon>person</Icon>
-                <a href="#" onClick={(e) => {
-                    e.preventDefault();
-                    document.getElementById("flights").innerHTML = document.getElementById("kmw").innerHTML;
-
-                  }}>
-                  View more passengers
-                </a>
+                <div onClick={handleFixedClick}>
+                    View more passengers
+                </div>
               </div>
             </CardFooter>
           </Card>
@@ -86,9 +96,9 @@ export default function Dashboard() {
             <CardFooter stats>
             <div className={classes.stats}>
               <Icon>person</Icon>
-                <a href="/table" >
-                  View more passengers
-                </a>
+              <div onClick={handleFixedClick}>
+                    View more passengers
+                </div>
               </div>
             </CardFooter>
           </Card>
@@ -105,9 +115,9 @@ export default function Dashboard() {
             <CardFooter stats>
             <div className={classes.stats}>
               <Icon>person</Icon>
-                <a href="/table" >
-                  View more passengers
-                </a>
+              <div onClick={handleFixedClick}>
+                    View more passengers
+                </div>
               </div>
             </CardFooter>
           </Card>
@@ -124,9 +134,9 @@ export default function Dashboard() {
             <CardFooter stats>
             <div className={classes.stats}>
               <Icon>person</Icon>
-                <a href="/table" >
-                  View more passengers
-                </a>
+              <div onClick={handleFixedClick}>
+                    View more passengers
+                </div>
               </div>
             </CardFooter>
           </Card>
@@ -149,9 +159,9 @@ export default function Dashboard() {
             <CardFooter stats>
             <div className={classes.stats}>
               <Icon>person</Icon>
-                <a href="/table" >
-                  View more passengers
-                </a>
+              <div onClick={handleFixedClick}>
+                    View more passengers
+                </div>
               </div>
             </CardFooter>
           </Card>
@@ -168,9 +178,9 @@ export default function Dashboard() {
             <CardFooter stats>
             <div className={classes.stats}>
               <Icon>person</Icon>
-                <a href="/table" >
-                  View more passengers
-                </a>
+              <div onClick={handleFixedClick}>
+                    View more passengers
+                </div>
               </div>
             </CardFooter>
           </Card>
@@ -187,9 +197,9 @@ export default function Dashboard() {
             <CardFooter stats>
             <div className={classes.stats}>
               <Icon>person</Icon>
-                <a href="/table" >
-                  View more passengers
-                </a>
+              <div onClick={handleFixedClick}>
+                    View more passengers
+                </div>
               </div>
             </CardFooter>
           </Card>
@@ -206,9 +216,9 @@ export default function Dashboard() {
             <CardFooter stats>
             <div className={classes.stats}>
               <Icon>person</Icon>
-                <a href="/table" >
-                  View more passengers
-                </a>
+              <div onClick={handleFixedClick}>
+                    View more passengers
+                </div>
               </div>
             </CardFooter>
           </Card>
@@ -231,9 +241,9 @@ export default function Dashboard() {
             <CardFooter stats>
             <div className={classes.stats}>
               <Icon>person</Icon>
-                <a href="/table" >
-                  View more passengers
-                </a>
+              <div onClick={handleFixedClick}>
+                    View more passengers
+                </div>
               </div>
             </CardFooter>
           </Card>
@@ -250,9 +260,9 @@ export default function Dashboard() {
             <CardFooter stats>
             <div className={classes.stats}>
               <Icon>person</Icon>
-                <a href="/table" >
-                  View more passengers
-                </a>
+              <div onClick={handleFixedClick}>
+                    View more passengers
+                </div>
               </div>
             </CardFooter>
           </Card>
@@ -269,9 +279,9 @@ export default function Dashboard() {
             <CardFooter stats>
             <div className={classes.stats}>
               <Icon>person</Icon>
-                <a href="/table" >
-                  View more passengers
-                </a>
+              <div onClick={handleFixedClick}>
+                    View more passengers
+                </div>
               </div>
             </CardFooter>
           </Card>
@@ -288,9 +298,9 @@ export default function Dashboard() {
             <CardFooter stats>
             <div className={classes.stats}>
               <Icon>person</Icon>
-                <a href="/table" >
-                  View more passengers
-                </a>
+              <div onClick={handleFixedClick}>
+                    View more passengers
+                </div>
               </div>
             </CardFooter>
           </Card>
@@ -299,7 +309,7 @@ export default function Dashboard() {
       
     </div>
 
-    <div id="kmw">
+    <div className={fixedClasses === "dropdown" ? "dropdown show" : "dropdown"}>
         <GridContainer>
         <GridItem xs={12} sm={6} md={3}>
           <Card>
@@ -315,9 +325,9 @@ export default function Dashboard() {
             <CardFooter stats>
             <div className={classes.stats}>
               <Icon>person</Icon>
-                <a href="/table" >
-                  View more passengers
-                </a>
+              <div onClick={handleFixedClick}>
+                    View more passengers
+                </div>
               </div>
             </CardFooter>
           </Card>
@@ -334,9 +344,9 @@ export default function Dashboard() {
             <CardFooter stats>
             <div className={classes.stats}>
               <Icon>person</Icon>
-                <a href="/table" >
-                  View more passengers
-                </a>
+              <div onClick={handleFixedClick}>
+                    View more passengers
+                </div>
               </div>
             </CardFooter>
           </Card>
@@ -353,9 +363,9 @@ export default function Dashboard() {
             <CardFooter stats>
             <div className={classes.stats}>
               <Icon>person</Icon>
-                <a href="/table" >
-                  View more passengers
-                </a>
+              <div onClick={handleFixedClick}>
+                    View more passengers
+                </div>
               </div>
             </CardFooter>
           </Card>
@@ -372,9 +382,9 @@ export default function Dashboard() {
             <CardFooter stats>
             <div className={classes.stats}>
               <Icon>person</Icon>
-                <a href="/table" >
-                  View more passengers
-                </a>
+              <div onClick={handleFixedClick}>
+                    View more passengers
+                </div>
               </div>
             </CardFooter>
           </Card>
