@@ -43,11 +43,11 @@ export default function Footer(props) {
           <span>
             &copy; {1900 + new Date().getYear()}{" "}
             <a
-              href="https://www.Airline.com?ref=mdr-footer"
+              href="https://www.creative-tim.com?ref=mdr-footer"
               target="_blank"
               className={classes.a}
             >
-              Airline
+              Creative Tim
             </a>
             , made with love for a better web
           </span>
