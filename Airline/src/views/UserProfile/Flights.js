@@ -4,6 +4,7 @@ import ChartistGraph from "react-chartist";
 // @material-ui/core
 import { makeStyles } from "@material-ui/core/styles";
 import Icon from "@material-ui/core/Icon";
+import TextField from '@material-ui/core/TextField';
 
 // core components
 import GridItem from "components/Grid/GridItem.js";
@@ -13,7 +14,7 @@ import Card from "components/Card/Card.js";
 import CardHeader from "components/Card/CardHeader.js";
 import CardIcon from "components/Card/CardIcon.js";
 import CardFooter from "components/Card/CardFooter.js";
-import { DataGrid } from '@material-ui/data-grid';
+import { DataGrid, RightEmptyCell } from '@material-ui/data-grid';
 
 import clsx from 'clsx';
 
@@ -32,8 +33,8 @@ const customeStyles = makeStyles({
       fontWeight: '600',
     },
     '& .super-app.negative': {
-      backgroundColor: 'rgba(111, 220, 111, 0.49)',
-      color: '#1a3e72',
+      backgroundColor: '#43a047',
+      color: 'white',
       fontWeight: '600',
     },
     '& .super-app.positive': {
@@ -91,25 +92,25 @@ const columns = [
 ];
 
 const rows = [
-  { id: 1, name: 'Snow', ancillary: 'Jon', seatN: 35 , wheel: 'Yes'},
-  { id: 2, name: 'Lannister', ancillary: 'Cersei', seatN: 42, checkin: 'checked', infant:'Yes' },
-  { id: 3, name: 'Lannister', ancillary: 'Jaime', seatN: 45 , wheel: 'Yes'},
-  { id: 4, name: 'Stark', ancillary: 'Arya', seatN: 16 , checkin: 'checked'},
-  { id: 5, name: 'Targaryen', ancillary: 'Daenerys', seatN: 93, wheel: 'Yes', infant:'Yes' },
-  { id: 6, name: 'Melisandre', ancillary: 'Harvey', seatN: 150, checkin: 'checked', wheel: 'Yes' },
-  { id: 7, name: 'Clifford', ancillary: 'Ferrara', seatN: 44, checkin: 'checked' , infant:'Yes' },
-  { id: 8, name: 'Frances', ancillary: 'Rossini', seatN: 36, wheel: 'Yes' },
-  { id: 9, name: 'Lannister', ancillary: 'Cersei', seatN: 45, checkin: 'checked', infant:'Yes' },
-  { id: 10, name: 'Targaryen', ancillary: 'Daenerys', seatN: 37 },
-  { id: 11, name: 'Roxie', ancillary: 'Harvey', seatN: 65, wheel: 'Yes', infant:'Yes' },
-  { id: 12, name: 'Lannister', ancillary: 'Cersei', seatN: 29 , wheel: 'Yes'},
+  { id: 1, name: 'Snow', ancillary: 'Tray tables', seatN: 35 , wheel: 'Yes'},
+  { id: 2, name: 'Lannister', ancillary: 'Seat back', seatN: 42, checkin: 'checked', infant:'Yes' },
+  { id: 3, name: 'Lannister', ancillary: 'Tickets to events', seatN: 45 , wheel: 'Yes'},
+  { id: 4, name: 'Stark', ancillary: 'Online gaming', seatN: 16 , checkin: 'checked'},
+  { id: 5, name: 'Targaryen', ancillary: 'Tours and activities', seatN: 93, wheel: 'Yes', infant:'Yes' },
+  { id: 6, name: 'Melisandre', ancillary: 'Airport parking', seatN: 150, checkin: 'checked', wheel: 'Yes' },
+  { id: 7, name: 'Clifford', ancillary: 'Car hire', seatN: 44, checkin: 'checked' , infant:'Yes' },
+  { id: 8, name: 'Frances', ancillary: 'Hotel rooms', seatN: 36, wheel: 'Yes' },
+  { id: 9, name: 'Lannister', ancillary: 'Flight change fees', seatN: 45, checkin: 'checked', infant:'Yes' },
+  { id: 10, name: 'Targaryen', ancillary: 'Credit card charges', seatN: 37 },
+  { id: 11, name: 'Roxie', ancillary: 'Fast track security', seatN: 65, wheel: 'Yes', infant:'Yes' },
+  { id: 12, name: 'Lannister', ancillary: 'Comfort packs', seatN: 29 , wheel: 'Yes'},
   { id: 13, name: 'Lannister', ancillary: 'Jaime', seatN: 49, checkin: 'checked', infant:'Yes'},
-  { id: 14, name: 'Stark', ancillary: 'Arya', seatN: 18, checkin: 'checked' },
+  { id: 14, name: 'Stark', ancillary: 'Seat upgrades', seatN: 18, checkin: 'checked' },
   { id: 15, name: 'Targaryen', ancillary: 'Daenerys', seatN: 17 , infant:'Yes'},
-  { id: 16, name: 'Melisandre', ancillary: 'Jon', seatN: 157, checkin: 'checked'},
-  { id: 17, name: 'Clifford', ancillary: 'Ferrara', seatN: 82, wheel: 'Yes' },
-  { id: 18, name: 'Frances', ancillary: 'Rossini', seatN: 39, wheel: 'Yes' },
-  { id: 19, name: 'Roxie', ancillary: 'Harvey', seatN: 68 , checkin: 'checked', infant:'Yes'},
+  { id: 16, name: 'Melisandre', ancillary: 'Priority boarding', seatN: 157, checkin: 'checked'},
+  { id: 17, name: 'Clifford', ancillary: 'Lottery tickets/scratch cards', seatN: 82, wheel: 'Yes' },
+  { id: 18, name: 'Frances', ancillary: 'Foreign currency exchange', seatN: 39, wheel: 'Yes' },
+  { id: 19, name: 'Roxie', ancillary: 'Sandwiches/snacks/small meals', seatN: 68 , checkin: 'checked', infant:'Yes'},
 ];
 
 export default function Dashboard() {
@@ -129,7 +130,7 @@ export default function Dashboard() {
  
   return (
     <div>
-      
+
     <div className={fixedClasses}>
       <GridContainer>
         <GridItem xs={12} sm={6} md={3}>
@@ -263,7 +264,7 @@ export default function Dashboard() {
                 <Icon>airplanemode_active</Icon>
               </CardIcon>
               <p className={classes.cardCategory}>Passengers</p>
-              <h3 className={classes.cardTitle}>275<br></br><p className={classes.cardCategory}>Hyderabad To Aurangabad Flights. 2394 , 25 Jan 2021</p></h3>
+              <h3 className={classes.cardTitle}>275<br></br><p className={classes.cardCategory}>Coimbatore To Aurangabad Flights. 4288 , 01 Dec 2020</p></h3>
             </CardHeader>
             <CardFooter stats>
             <div className={classes.stats}>
@@ -297,94 +298,22 @@ export default function Dashboard() {
       </GridContainer>
       
 
-      <GridContainer>
-        <GridItem xs={12} sm={6} md={3}>
-          <Card>
-            <CardHeader color="warning" stats icon>
-              <CardIcon color="warning">
-                <Icon>airplanemode_active</Icon>
-              </CardIcon>
-              <p className={classes.cardCategory}>Passengers</p>
-              <h3 className={classes.cardTitle}>
-                372<br></br><p className={classes.cardCategory}>Hyderabad To Aurangabad Flights. 2394 , 25 Jan 2021</p>
-              </h3>
-            </CardHeader>
-            <CardFooter stats>
-            <div className={classes.stats}>
-              <Icon>person</Icon>
-              <div onClick={handleFixedClick} style={{cursor: 'pointer', textDecoration:'underline'}}>
-                    View more passengers
-                </div>
-              </div>
-            </CardFooter>
-          </Card>
-        </GridItem>
-        <GridItem xs={12} sm={6} md={3}>
-          <Card>
-            <CardHeader color="success" stats icon>
-              <CardIcon color="success">
-                <Icon>airplanemode_active</Icon>
-              </CardIcon>
-              <p className={classes.cardCategory}>Passengers</p>
-              <h3 className={classes.cardTitle}>243<br></br><p className={classes.cardCategory}>Coimbatore To Aurangabad Flights. 4288 , 01 Dec 2020</p></h3>
-            </CardHeader>
-            <CardFooter stats>
-            <div className={classes.stats}>
-              <Icon>person</Icon>
-              <div onClick={handleFixedClick} style={{cursor: 'pointer', textDecoration:'underline'}}>
-                    View more passengers
-                </div>
-              </div>
-            </CardFooter>
-          </Card>
-        </GridItem>
-        <GridItem xs={12} sm={6} md={3}>
-          <Card>
-            <CardHeader color="warning" stats icon>
-              <CardIcon color="warning">
-                <Icon>airplanemode_active</Icon>
-              </CardIcon>
-              <p className={classes.cardCategory}>Passengers</p>
-              <h3 className={classes.cardTitle}>173<br></br><p className={classes.cardCategory}>Hyderabad To Aurangabad Flights. 2394 , 25 Jan 2021</p></h3>
-            </CardHeader>
-            <CardFooter stats>
-            <div className={classes.stats}>
-              <Icon>person</Icon>
-              <div onClick={handleFixedClick} style={{cursor: 'pointer', textDecoration:'underline'}}>
-                    View more passengers
-                </div>
-              </div>
-            </CardFooter>
-          </Card>
-        </GridItem>
-        <GridItem xs={12} sm={6} md={3}>
-          <Card>
-            <CardHeader color="info" stats icon>
-              <CardIcon color="info">
-                <Icon>airplanemode_active</Icon>
-              </CardIcon>
-              <p className={classes.cardCategory}>Passengers</p>
-              <h3 className={classes.cardTitle}>423<br></br><p className={classes.cardCategory}>Delhi To Mumbai FlightsLowest Fare Rs. 3746 , 28 Nov 2020</p></h3>
-            </CardHeader>
-            <CardFooter stats>
-            <div className={classes.stats}>
-              <Icon>person</Icon>
-              <div onClick={handleFixedClick} style={{cursor: 'pointer', textDecoration:'underline'}}>
-                    View more passengers
-                </div>
-              </div>
-            </CardFooter>
-          </Card>
-        </GridItem>
-      </GridContainer>
       
     </div>
-
+    <div  >
+      
       <div className={fixedClasses === "dropdown" ? "dropdown show" : "dropdown"}>
+        <div style={{textAlign:'right'}}>
+          <TextField id="standard-basic" label="Filtering Table"/>
+        <p></p>
+        </div>
+        
         <div style={{ height: 500, width: '100%' }} className={customeClasses.root}>
           <DataGrid rows={rows} columns={columns} pageSize={7} checkboxSelection />
         </div>
       </div>
+    </div>
+      
     </div>
   );
 }

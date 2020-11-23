@@ -29,6 +29,7 @@ import DashboardPage from "views/Dashboard/Dashboard.js";
 import UserProfile from "views/UserProfile/UserProfile.js";
 import Flights from "views/UserProfile/Flights.js";
 import TableList from "views/TableList/TableList.js";
+
 import Typography from "views/Typography/Typography.js";
 import Icons from "views/Icons/Icons.js";
 import Maps from "views/Maps/Maps.js";
@@ -53,6 +54,7 @@ const dashboardRoutes = [
     component: Flights,
     layout: "/admin"
   },
+
   {
     path: "/table",
     name: "In Flight / Stuff",

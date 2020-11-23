@@ -99,12 +99,12 @@ const customeStyles = makeStyles({
       fontWeight: '600',
     },
     '& .super-app.negative': {
-      backgroundColor: 'rgba(111, 220, 111, 0.49)',
-      color: '#1a3e72',
+      backgroundColor: '#43a047',
+      color: 'white',
       fontWeight: '600',
     },
     '& .super-app.positive': {
-      backgroundColor: '#33cccc',
+      backgroundColor: '#ffa726',
       color: '#1a3e72',
       fontWeight: '600',
     },
@@ -118,8 +118,8 @@ const customeStyles = makeStyles({
 
 const columns = [
   { field: 'id', headerName: 'ID', width: 70 },
-  { field: 'name', headerName: 'Name', width: 180 },
-  { field: 'ancillary', headerName: 'Ancillary service', width: 270 },
+  { field: 'name', headerName: 'Name', width: 110 },
+  { field: 'ancillary', headerName: 'Ancillary service', width: 350 },
   
   {
     field: 'special',
@@ -155,25 +155,25 @@ const columns = [
 ];
 
 const rows = [
-  { id: 1, name: 'Snow', ancillary: 'Jon', seatN: 35 , shop: 'Yes'},
-  { id: 2, name: 'Lannister', ancillary: 'Cersei', seatN: 42, special: 'Required', infant:'Yes' },
-  { id: 3, name: 'Lannister', ancillary: 'Jaime', seatN: 45 , shop: 'Yes'},
-  { id: 4, name: 'Stark', ancillary: 'Arya', seatN: 16 , special: 'Required'},
-  { id: 5, name: 'Targaryen', ancillary: 'Daenerys', seatN: 93, shop: 'Yes', infant:'Yes' },
-  { id: 6, name: 'Melisandre', ancillary: 'Harvey', seatN: 150, special: 'Required', shop: 'Yes' },
-  { id: 7, name: 'Clifford', ancillary: 'Ferrara', seatN: 44, special: 'Required' , infant:'Yes' },
-  { id: 8, name: 'Frances', ancillary: 'Rossini', seatN: 36, shop: 'Yes' },
-  { id: 9, name: 'Lannister', ancillary: 'Cersei', seatN: 45, special: 'Required', infant:'Yes' },
-  { id: 10, name: 'Targaryen', ancillary: 'Daenerys', seatN: 37 },
-  { id: 11, name: 'Roxie', ancillary: 'Harvey', seatN: 65, shop: 'Yes', infant:'Yes' },
-  { id: 12, name: 'Lannister', ancillary: 'Cersei', seatN: 29 , shop: 'Yes'},
-  { id: 13, name: 'Lannister', ancillary: 'Jaime', seatN: 49, special: 'Required', infant:'Yes'},
-  { id: 14, name: 'Stark', ancillary: 'Arya', seatN: 18, special: 'Required' },
-  { id: 15, name: 'Targaryen', ancillary: 'Daenerys', seatN: 17 , infant:'Yes'},
-  { id: 16, name: 'Melisandre', ancillary: 'Jon', seatN: 157, special: 'Required'},
-  { id: 17, name: 'Clifford', ancillary: 'Ferrara', seatN: 82, shop: 'Yes' },
-  { id: 18, name: 'Frances', ancillary: 'Rossini', seatN: 39, shop: 'Yes' },
-  { id: 19, name: 'Roxie', ancillary: 'Harvey', seatN: 68 , special: 'Required', infant:'Yes'},
+  { id: 1, name: 'Snow', ancillary: 'Sandwiches/snacks/small meals', seatN: 35 , shop: 'Yes'},
+  { id: 2, name: 'Lannister', ancillary: 'Foreign currency exchange', seatN: 42, special: 'Required', infant:'Yes' },
+  { id: 3, name: 'Lannister', ancillary: 'Lottery tickets/scratch cards', seatN: 45 , shop: 'Yes'},
+  { id: 4, name: 'Stark', ancillary: 'Priority boarding', seatN: 16 , special: 'Required'},
+  { id: 5, name: 'Targaryen', ancillary: 'Seat upgrades', seatN: 93, shop: 'Yes', infant:'Yes' },
+  { id: 6, name: 'Melisandre', ancillary: 'Seat upgrades', seatN: 150, special: 'Required', shop: 'Yes' },
+  { id: 7, name: 'Clifford', ancillary: 'Comfort packs', seatN: 44, special: 'Required' , infant:'Yes' },
+  { id: 8, name: 'Frances', ancillary: 'Fast track security', seatN: 36, shop: 'Yes' },
+  { id: 9, name: 'Lannister', ancillary: 'Credit card charges', seatN: 45, special: 'Required', infant:'Yes' },
+  { id: 10, name: 'Targaryen', ancillary: 'Flight change fees', seatN: 37 },
+  { id: 11, name: 'Roxie', ancillary: 'Hotel rooms', seatN: 65, shop: 'Yes', infant:'Yes' },
+  { id: 12, name: 'Lannister', ancillary: 'Car hire', seatN: 29 , shop: 'Yes'},
+  { id: 13, name: 'Lannister', ancillary: 'Airport parking', seatN: 49, special: 'Required', infant:'Yes'},
+  { id: 14, name: 'Stark', ancillary: 'Tours and activities', seatN: 18, special: 'Required' },
+  { id: 15, name: 'Targaryen', ancillary: 'Foreign currency exchange', seatN: 17 , infant:'Yes'},
+  { id: 16, name: 'Melisandre', ancillary: 'Online gaming', seatN: 157, special: 'Required'},
+  { id: 17, name: 'Clifford', ancillary: 'Tickets to events', seatN: 82, shop: 'Yes' },
+  { id: 18, name: 'Frances', ancillary: 'Seat backs', seatN: 39, shop: 'Yes' },
+  { id: 19, name: 'Roxie', ancillary: 'Tray tables', seatN: 68 , special: 'Required', infant:'Yes'},
 ];
 
 const top100Films = [
@@ -253,7 +253,7 @@ const [open1, setOpen1] = React.useState(false);
 
   return (
     <div>
-      <div style={{textAlign:'center'}}>
+      <div style={{textAlign:'center', marginBottom:30}}>
         <Button
           onClick={handleClickOpen}
           variant="contained"
